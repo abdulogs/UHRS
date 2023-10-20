@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %} Home - {% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block content %}
+<main class="content container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h1 class="mb-2">
+                Welcome to <b class="text-warning">UHRS</b>
+            </h1>
+            <p class="text-muted font-12">
+                Our results indicate that a specialized search engine can improve the diagnostic quality without
+                compromising the ease of use of the currently widely popular standard web search. The proposed
+                evaluation approach can be valuable for future development and benchmarking.
+            </p>
+            <form class="input-group mb-3" method="get" action="/diseases/">
+                <input type="search" class="form-control font-12 shadow-none" placeholder="Search diseases"
+                    name="disease">
+                <div class="input-group-append">
+                    <button class="btn btn-warning text-white font-12 shadow-none" type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-6 text-right">
+            <img src="{{ url_for('static', filename='imgs/main.jpg') }}" class="col-10" alt="">
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+
+{% block scripts %}
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %} Add disease - {% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+{% endblock %}
+
+{% block content %}
+<main class="content bg-light">
+    <form class="form mt-5 mb-5 shadow-sm border rounded bg-white pt-5 pb-5" action="/disease-insert/" method="post">
+        <h1 class="h3 mb-2 font-weight-bold text-center">Add disease!</h1>
+        <p class="h6 mb-4 text-center text-muted">fetch diseases data!</p>
+        <div class="form-group">
+            <input type="text" class="form-control form-control-lg shadow-none border font-12" placeholder="Name"
+                name="name" required>
+        </div>
+        <button class="w-100 btn btn-lg btn-dark text-white font-12" type="submit">Proceed</button>
+    </form>
+</main>
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}

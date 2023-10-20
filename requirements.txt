@@ -1,0 +1,15 @@
+pip install beautifulsoup4==4.10.0
+pip install bs4==0.0.1
+pip install Flask==2.0.2
+pip install Flask-Cors==3.0.10
+pip install Flask-Mail==0.9.1
+pip install Flask-Redmail==0.3.0
+pip install Flask-SQLAlchemy==2.5.1
+pip install html5lib==1.1
+pip install httpx==0.13.3
+pip install lxml==4.8.0
+pip install Markdown==3.3.6
+pip install mysql-connector-python==8.0.27
+pip install mysqlclient==2.1.0
+
+

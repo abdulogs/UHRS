@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %} All diseases - {% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+<style>
+    .font-20 {
+        font-size: 20px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<main class="bg-light">
+    <div class="container">
+        <div class="row flex-column align-items-center justify-content-center pt-5">
+            <div class="col-sm-8 text-right">
+                <h1 class="py-2 mb-3 "><b>{{diseases|length}}</b> :<b>تمام ریکارڈ</b></h1>
+                {% if diseases %}
+                {% for disease in diseases %}
+                <div class="card shadow-sm rounded mb-4">
+                    <div class="card-body p-5">
+                        <a href="/disease-details/{{ disease.id }}/" class="display-4 text-dark mb-2">
+                            <b>{{ disease.name }}</b>
+                        </a>
+                        <hr>
+                        <p class="description">
+                            {{ disease.description }}
+                        </p>
+                        {% if "id" in session %}
+                        <a href="/disease-delete/{{ disease.id }}/" class="btn btn-danger">Delete</a>
+                        {% endif %}
+                        <a href="/disease-details/{{ disease.id }}/" class="btn btn-dark">Read more</a>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <h3>کوئی بیماری نہیں ملی</h3>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}

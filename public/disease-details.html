@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block title %} Home - {% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+<style>
+    .font-20 {
+        font-size: 20px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<main class="bg-light">
+    <div class="container">
+        <div class="row pt-5">
+            <div class="col-sm-8 text-right" dir="auto">
+                <!-- details -->
+                <div class="card shadow-sm rounded mb-4">
+                    <div class="card-body p-5">
+                        <h3 class="display-4 text-dark mb-2">
+                            <b class="text-success">نام :</b> <b>{{ disease.name }}</b>
+                        </h3>
+                        <hr>
+                        <p class="description font-20">
+                            <b class="text-success">تفصیل:</b> {{ disease.description }}
+                        </p>
+                    </div>
+                </div>
+                <!-- details -->
+
+                <!-- symptoms -->
+                <div class="card shadow-sm rounded mb-4">
+                    <div class="card-body p-5">
+                        <h3 class="display-4 text-dark mb-2"> <b class="text-success">علامات</b></h3>
+                        <hr>
+                        <p class="description font-20"> {{ disease.symptoms }}</p>
+                    </div>
+                </div>
+                <!-- symptoms -->
+
+                <!-- risk -->
+                <div class="card shadow-sm rounded mb-4">
+                    <div class="card-body p-5">
+                        <h3 class="display-4 text-dark mb-2"><b class="text-success">خطرہ</b></h3>
+                        <hr>
+                        <p class="description font-20"> {{ disease.risk }}</p>
+                    </div>
+                </div>
+                <!-- risk -->
+
+                <!-- treatment -->
+                <div class="card shadow-sm rounded mb-4">
+                    <div class="card-body p-5">
+                        <h3 class="display-4 text-dark mb-2"><b class="text-success"> علاج</b></h3>
+                        <hr>
+                        <p class="description font-20"> {{ disease.treatment }}</p>
+                    </div>
+                </div>
+                <!-- treatment -->
+
+                <!-- prevention -->
+                <div class="card shadow-sm rounded mb-4">
+                    <div class="card-body p-5">
+                        <h3 class="display-4 text-dark mb-2"><b class="text-success">روک تھام</b></h3>
+                        <hr>
+                        <p class="description font-20"> {{ disease.prevention }}</p>
+                    </div>
+                </div>
+                <!-- prevention -->
+
+
+                <!-- summary -->
+                <div class="card shadow-sm rounded mb-4">
+                    <div class="card-body p-5">
+                        <h3 class="display-4 text-dark mb-2"><b class="text-success">خلاصہ</b></h3>
+                        <hr>
+                        <p class="description font-20"> {{ disease.summary }}</p>
+                    </div>
+                </div>
+                <!-- summary -->
+
+            </div>
+            <div class="col-sm-4">
+                <h2>Doctors</h2>
+                <hr>
+                {% if doctors %}
+                {% for doctor in doctors %}
+                <div class="card">
+                    <div class="card-body d-flex">
+                        <a href="{{ doctor.link }}" class="d-inline-block">
+                            <img src="{{ doctor.image }}" width="50" class="rounded-circle img-thumbnail"
+                                alt="{{ doctor.name }}">
+                        </a>
+                        <a href="{{ doctor.link }}" class="ml-3 text-dark">{{ doctor.name }}</a>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}

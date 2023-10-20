@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %} Contact us - {% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/form.css')}}">
+{% endblock %}
+
+
+{% block content %}
+<main class="pb-5 pt-5 bg-light">
+    <div class="container">
+        <form class="form bg-white rounded shadow-sm pt-3 pb-3 border" action="/contact-us/" method="post">
+            <h1 class="h3 m-0 mb-2 font-weight-bold text-center">Contact us!</h1>
+            <p class="h6 mb-4 text-center text-muted">You can freely ask us your queries by sending us message</p>
+            <div class="form-group">
+                <label for="" class="form-label mb-0"><b>Fullname</b></label>
+                <input type="text" class="form-control form-control-lg shadow-none font-12 rounded" name="fullname"
+                    id="fullname">
+            </div>
+            <div class="form-group">
+                <label for="" class="form-label mb-0"><b>Email address</b></label>
+                <input type="email" class="form-control form-control-lg shadow-none font-12 rounded" name="email" id="email">
+            </div>
+            <div class="form-group">
+                <label for="" class="form-label mb-0"><b>Phone number</b></label>
+                <input type="text" class="form-control form-control-lg shadow-none font-12 rounded" name="phone" id="phone">
+            </div>
+            <div class="form-group">
+                <label for="" class="form-label mb-0"><b>Message</b></label>
+                <textarea rows="3" class="form-control form-control-lg shadow-none font-12 rounded" name="message"
+                    id="message"></textarea>
+            </div>
+            <button class="w-100 btn btn-lg btn-dark font-12" type="submit">Send message</button>
+        </form>
+    </div>
+
+
+
+</main>
+{% endblock %}
+
+
+{% block scripts %}
+
+{% endblock %}

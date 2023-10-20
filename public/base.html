@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %} UHRS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='libs/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='imgs/logo.png') }}" type="image/png">
+    {% block styles %}{% endblock %}
+</head>
+
+<body>
+    <header class=" py-2 border-bottom ">
+        <nav class="d-flex align-items-center align-content-center justify-content-between container">
+            <a href="/" class=" text-dark text-decoration-none col-3">
+                <img src="{{ url_for('static', filename='imgs/logo.png') }}" height="50" alt="">
+            </a>
+            <ul class="nav  justify-content-center">
+                <li>
+                    <a href="/diseases/" class="nav-link px-2 text-dark font-12">Diseases</a>
+                </li>
+                <li>
+                    <a href="/about-us/" class="nav-link px-3 text-dark font-12">About us</a>
+                </li>
+                <li>
+                    <a href="/contact-us/" class="nav-link px-3 text-dark font-12">Contact us</a>
+                </li>
+                <li>
+                    <a href="/terms-and-conditions/" class="nav-link px-3 text-dark font-12">Terms and conditions</a>
+                </li>
+                <li>
+                    <a href="/help-center/" class="nav-link px-3 text-dark font-12">Help center</a>
+                </li>
+                {% if "id" in session %}
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="nav-link px-3 text-dark font-12 dropdown-toggle"
+                        data-toggle="dropdown">
+                       <b> {{user.firstname}} {{ user.lastname }}</b>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/disease-insert/">Add disease</a>
+                        <a class="dropdown-item" href="/logout/">Logout</a>
+                    </div>
+                </li>
+                {% endif %}
+
+
+            </ul>
+        </nav>
+    </header>
+    {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert m-0 alert-{{ message[0] }}">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {% if message[0] == 'success' %}
+        <strong>Success:</strong> {{ message[1] }}
+        {% else %}
+        <strong>Error:</strong> {{ message[1] }}
+        {% endif %}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    {% block content %} {% endblock %}
+    <footer class=" py-3 border-top">
+        <nav class="container d-flex flex-wrap justify-content-between align-items-center">
+            <p class="col-md-4 mb-0 font-12 text-muted">&copy; 2022 Company, Inc</p>
+            <ul class="nav col-md-8 justify-content-end">
+                <li>
+                    <a href="/about-us/" class="nav-link px-2 text-dark font-12">About Us</a>
+                </li>
+                <li>
+                    <a href="/contact-us/" class="nav-link px-2 text-dark font-12">Contact Us</a>
+                </li>
+                <li>
+                    <a href="/help-center/" class="nav-link px-2 text-dark font-12">Help center</a>
+                </li>
+                <li>
+                    <a href="/terms-and-conditions/" class="nav-link px-3 text-dark font-12">Terms and conditions</a>
+                </li>
+                <li>
+                    <a href="/privacy-policy/" class="nav-link px-3 text-dark font-12">Privacy policy</a>
+                </li>
+
+            </ul>
+        </nav>
+    </footer>
+
+    <script src="{{ url_for('static', filename='libs/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='libs/popper/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='libs/bootstrap/js/bootstrap.min.js') }}"></script>
+    {% block scripts %} {% endblock %}
+</body>
+
+</html>

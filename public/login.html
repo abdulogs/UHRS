@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %} Admin login - {% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+{% endblock %}
+
+{% block content %}
+<main class="content bg-light">
+    <form class="form mt-5 mb-5 shadow-sm border rounded bg-white pt-5 pb-5" action="/admin/" method="post">
+        <h1 class="h3 mb-2 font-weight-bold text-center">Admin Login!</h1>
+        <p class="h6 mb-4 text-center text-muted">Welcome back! login to your account!</p>
+        <div class="form-group">
+            <input type="email" class="form-control form-control-lg shadow-none border border-bottom-0 font-12"
+                placeholder="Email address..." name="email">
+            <input type="password" class="form-control form-control-lg shadow-none  border font-12"
+                placeholder="Password..." name="password">
+        </div>
+        <button class="w-100 btn btn-lg btn-dark text-white font-12" type="submit">Login</button>
+    </form>
+</main>
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
